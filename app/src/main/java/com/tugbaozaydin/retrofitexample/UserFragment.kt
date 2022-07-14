@@ -29,8 +29,8 @@ class UserFragment : Fragment() {
     ): View? {
         _binding = FragmentUserBinding.inflate(inflater, container, false)
         val view = binding.root
-        return view
         initView()
+        return view
     }
     private fun initView() {
         val userListAdapter = UserItemAdapter(userList)

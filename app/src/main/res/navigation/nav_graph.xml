@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/userFragment"
         android:name="com.tugbaozaydin.retrofitexample.UserFragment"
-        android:label="UserFragment" >
+        android:label="UserFragment">
         <action
             android:id="@+id/action_userFragment_to_userDetailFragment"
             app:destination="@id/userDetailFragment" />
@@ -17,5 +17,9 @@
         android:id="@+id/userDetailFragment"
         android:name="com.tugbaozaydin.retrofitexample.UserDetailFragment"
         android:label="fragment_user_detail"
-        tools:layout="@layout/fragment_user_detail" />
+        tools:layout="@layout/fragment_user_detail">
+        <argument
+            android:name="userData"
+            app:argType="com.tugbaozaydin.retrofitexample.User" />
+    </fragment>
 </navigation>
