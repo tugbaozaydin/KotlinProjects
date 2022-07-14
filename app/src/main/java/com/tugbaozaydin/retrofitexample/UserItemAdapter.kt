@@ -3,8 +3,10 @@ package com.tugbaozaydin.retrofitexample
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 
 class UserItemAdapter(val data: List<User>) :
     RecyclerView.Adapter<UserItemAdapter.UserItemViewHolder>() {
@@ -21,7 +23,7 @@ class UserItemAdapter(val data: List<User>) :
         val item = data[position]
         holder.userName.text = item.name
         holder.userPhone.text = item.phone
-        holder.userEmail.text = item.email
+        Glide.with(holder.itemView.context).load(item.avatar).into(holder.userAvatar);
     }
 
     override fun getItemCount() = data.size
@@ -30,7 +32,7 @@ class UserItemAdapter(val data: List<User>) :
 
         val userName: TextView = view.findViewById(R.id.user_name)
         val userPhone: TextView = view.findViewById(R.id.user_phone)
-        val userEmail: TextView = view.findViewById(R.id.user_email)
+        val userAvatar: ImageView = view.findViewById(R.id.user_avatar)
 
     }
 }
