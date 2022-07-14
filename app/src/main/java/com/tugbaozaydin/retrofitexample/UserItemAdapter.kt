@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.tugbaozaydin.retrofitexample.databinding.UserItemBinding
@@ -25,7 +26,10 @@ class UserItemAdapter(val data: List<User>) :
         val item = data[position]
         holder.userName.text = item.name
         holder.userPhone.text = item.phone
-        Glide.with(holder.itemView.context).load(item.avatar).into(holder.userAvatar);
+        Glide.with(holder.itemView.context).load(item.avatar).into(holder.userAvatar)
+        holder.userCardView.setOnClickListener {
+
+        }
     }
 
     override fun getItemCount() = data.size
@@ -34,6 +38,7 @@ class UserItemAdapter(val data: List<User>) :
         val userName: TextView = binding.userName
         val userPhone: TextView = binding.userPhone
         val userAvatar: ImageView = binding.userAvatar
+        val userCardView : CardView = binding.userCardView
 
     }
 }
