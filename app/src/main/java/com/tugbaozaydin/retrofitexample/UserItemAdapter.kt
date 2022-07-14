@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.tugbaozaydin.retrofitexample.databinding.UserItemBinding
@@ -27,8 +28,8 @@ class UserItemAdapter(val data: List<User>) :
         holder.userName.text = item.name
         holder.userPhone.text = item.phone
         Glide.with(holder.itemView.context).load(item.avatar).into(holder.userAvatar)
-        holder.userCardView.setOnClickListener {
-
+        holder.userCardView.setOnClickListener{ view ->
+            view.findNavController().navigate(R.id.action_userFragment_to_userDetailFragment)
         }
     }
 
