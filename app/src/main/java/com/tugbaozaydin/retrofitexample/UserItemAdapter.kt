@@ -7,15 +7,17 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.tugbaozaydin.retrofitexample.databinding.UserItemBinding
 
 class UserItemAdapter(val data: List<User>) :
     RecyclerView.Adapter<UserItemAdapter.UserItemViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserItemViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.user_item, parent, false)
+        val layoutInflater = LayoutInflater.from(parent.context)
+        val binding = UserItemBinding.inflate(layoutInflater, parent, false)
 
-        return UserItemViewHolder(view)
+        return UserItemViewHolder(binding)
     }
 
 
@@ -28,11 +30,10 @@ class UserItemAdapter(val data: List<User>) :
 
     override fun getItemCount() = data.size
 
-    class UserItemViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
-
-        val userName: TextView = view.findViewById(R.id.user_name)
-        val userPhone: TextView = view.findViewById(R.id.user_phone)
-        val userAvatar: ImageView = view.findViewById(R.id.user_avatar)
+    class UserItemViewHolder(binding: UserItemBinding) : RecyclerView.ViewHolder(binding.root) {
+        val userName: TextView = binding.userName
+        val userPhone: TextView = binding.userPhone
+        val userAvatar: ImageView = binding.userAvatar
 
     }
 }
